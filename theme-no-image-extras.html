@@ -252,13 +252,6 @@
 					$("#sidebar").css("top",window.innerHeight/2-$("#sidebar").height()/2)
 				}).resize()
 				
-				$(".imgdata").hide();
-				$(".post").mouseenter(function() {
-					$(this).children(".imgdata").stop(true, true).slideDown({easing:"linear",duration:"fast",});
-				}).mouseleave(function() {
-					$(this).children(".imgdata").stop(true, true).slideUp({easing:"linear",duration:"fast"});
-				})
-				
 				$(".nofade-img").parent().addClass("nofade");
 			})
 		</script>
@@ -332,21 +325,6 @@
 					
 					{block:Photo}
 						{LinkOpenTag}<img src="{PhotoURL-500}" class="nofade-img" alt="{PhotoAlt}">{LinkCloseTag}
-						<div class="imgdata">
-							{block:HighRes}
-								<span class="highres">
-									<a href="{PhotoURL-HighRes}">High Resolution</a>
-								</span>
-							{/block:HighRes}
-							{block:Exif}
-								<span class="exif">
-									{block:Camera}Camera: {Camera}<br>{/block:Camera}
-									{block:Aperture}Aperture: {Aperture}<br>{/block:Aperture}
-									{block:Exposure}Exposure: {Exposure}<br>{/block:Exposure}
-									{block:FocalLength}Focal Length: {FocalLength}{/block:FocalLength}
-								</span>
-							{/block:Exif}
-						</div>
 						{block:Caption}
 							<div class="body">
 								{Caption}
