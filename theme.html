@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+
+<!--
+    Theme by Imgoodisher
+    http://imgoodisher.tumblr.com
+    
+    aW1nb29kLnphcHRvLm9yZw==
+-->
+
+
+<html>
+	<head>
+	    <title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}{block:SearchPage} - {SearchQuery}{/block:SearchPage}</title>
+	    {block:Description}
+	        <meta name="description" content="{MetaDescription}">
+	    {/block:Description}
+	    <link rel="shortcut icon" href="{Favicon}">
+	    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+	
+		<meta name="font:Main Font" content="Verdana, Geneva, sans-serif">
+		
+		<meta name="color:Text Color" content="#000000">
+		<meta name="color:Background Color" content="#ececec">
+	
+		<meta name="color:Post Background" content="#ffffff">
+		<meta name="color:Post Header Background" content="#d8d8d8">
+		<meta name="color:Post Header Text" content="#2f3440">
+		<meta name="color:Post Footer Background" content="#f5e5c0">
+		
+		<meta name="color:Sidebar Background" content="#d8d8d8">
+		<meta name="color:Sidebar Block Background" content="#ececec">
+		<!--<meta name="color:Sidebar Text" content="">-->
+		
+		<meta name="color:Ask Background" content="#ebebeb">
+		<meta name="color:Link Color" content="#f8ca4d">
+		<meta name="color:Tag Text" content="#ea6045">
+		
+		<meta name="if:Image in Sidebar" content="1">
+	
+		<style>
+			html,body{width:100%;height:100%;}
+			body {
+				background-color:{color:Background Color};
+				font-family:{font:Main Font};
+				margin:0px;
+				color:{color:Text Color};
+			}
+			
+			img {
+			    max-width:100%;
+			}
+			
+			blockquote {
+				margin:10px 0px 10px 10px;
+				padding-left:15px;
+				border-left:4px solid rgba(0,0,0,0.12);
+			}
+			
+			
+			a:link {
+				text-decoration:none;
+				transition:opacity 0.5s;
+				color:{color:Link Color};
+			}
+			a:visited {
+				text-decoration:none;
+				color:{color:Link Color};
+			}
+			a:hover:not(.nofade) {
+				text-decoration:none;
+				opacity:0.5;
+				color:{color:Link Color};
+			}
+			a:active {
+				text-decoration:none;
+				color:{color:Link Color};
+			}
+			
+			
+			#sidebar-container {
+				position:fixed;
+				top:0px;
+				right:0px;
+				width:50%;
+			}
+			#sidebar {
+				position:absolute;
+				left:266px;
+				width:200px;
+				text-align:center;
+				
+				padding:16px;
+				
+				background-color:{color:Sidebar Background};
+			}
+			#sidebar .block {
+			    display:block;
+				background-color:{color:Sidebar Block Background};
+				transition:opacity 0.5s;
+				padding:8px;
+				margin-bottom:16px;
+			}
+			#sidebar .block:last-child {
+				margin-bottom:0px;
+			}
+			#sidebar .block.link:hover {
+				opacity:0.5;
+			}
+			
+		
+			#post-container {
+				text-align:center;
+				padding:8px;
+			}
+			
+			.post {
+				background-color:{color:Post Background};
+				
+				width:500px;
+				margin:10px;
+				
+				display:inline-block;
+				text-align:left;
+			}
+			.post .header {
+				background-color:{color:Post Header Background};
+				color:{color:Post Header Text};
+				
+				font-size:12px;
+				padding:2px;
+				text-align:center;
+			}
+			.post .body {
+				padding:8px;
+			}
+			.post .footer {
+				background-color:{color:Post Footer Background};
+				
+				padding:0px 4px;
+			}
+			.post .footer .tag {
+				color:{color:Tag Text};
+				
+				font-size:12px;
+				padding:0px 2px;
+			}
+			
+			
+			.post .body .title {
+				font-size:1.2em;
+				border-bottom:1px dotted #000000;
+				text-align:center;
+			}
+			
+			
+			.imgdata {
+				padding:8px;
+				background-color:{color:Post Header Background};
+				position:relative;top:-3px;
+			}
+			.imgdata .exif {
+				display:inline-block;
+				width:238px;
+				text-align:right;
+			}
+			.imgdata .highres {
+				display:inline-block;
+				width:238px;
+			}
+			
+			
+			.quote {
+				font-size:1.5em;
+			}
+			.quote-source {
+				text-align:right;
+			}
+			
+			
+			.chat .name {
+				font-weight:bold;
+			}
+			
+			
+			.tumblr_audio_player {
+				width:500px;
+				height:84px;
+			}
+			
+			
+			.question, .answer {
+				background-color:{color:Ask Background};
+				padding:10px;
+				border-radius:8px;
+			}
+			.answer {
+				margin-top:8px;
+			}
+			.arrow {
+				position:relative;
+				top:-2px;
+				left:12px;
+			}
+			.asker-portrait, .answerer-portrait {
+				position: relative;
+				left: 8px;
+			}
+			
+			
+			
+			#pagination {
+			    display:inline-block;
+			    width:500px;
+			    margin-bottom:8px;
+			}
+			
+			#next {
+			    width:100px;
+			    padding:4px;
+			    display:inline-block;
+			    background-color:{color:Post Background};
+			    text-align:center;
+			    margin-left:50px;
+			    float:right;
+			    color:{color:Text Color};
+			}
+			
+			#previous {
+			    width:100px;
+			    padding:4px;
+			    display:inline-block;
+			    background-color:{color:Post Background};
+			    text-align:center;
+			    margin-right:50px;
+			    float:left;
+			    color:{color:Text Color};
+			}
+			
+			
+			.notes {
+			    list-style:none;
+			    padding:0px 16px;
+			}
+			
+			{CustomCSS}
+		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+			$(function() {
+			    $(window).resize(function() {
+			        $("#sidebar").css("top",window.innerHeight/2-$("#sidebar").height()/2)
+			    }).resize()
+			    
+				$(".imgdata").hide();
+				$(".post").mouseenter(function() {
+					$(this).children(".imgdata").stop(true, true).slideDown({easing:"linear",duration:"fast",});
+				}).mouseleave(function() {
+					$(this).children(".imgdata").stop(true, true).slideUp({easing:"linear",duration:"fast"});
+				})
+				
+				$(".nofade-img").parent().addClass("nofade");
+			})
+		</script>
+	</head>
+	<body>
+		<div id="sidebar-container">
+		
+			<!-- Sidebar -->
+	   
+			 <div id="sidebar">
+			    {block:IfImageInSidebar}
+				    <div class="portrait block">
+				    	<img src="{PortraitURL-128}">
+				    </div>
+				{/block:IfImageInSidebar}
+				<div class="title block">
+					{Title}
+				</div>
+				<div class="description block">
+					{Description}
+				</div>
+				<div class="search block" style="text-align:center">
+				    <form action="/search" method="get">
+				        <input type="text" name="q" value="{SearchQuery}" placeholder=" Search" style="width:180px">
+				        <input type="submit" value="Search">
+				    </form>
+				</div>
+				{block:AskEnabled}
+				    <a href="{BlogURL}ask" class="ask link block nofade">
+						{AskLabel}
+					</a>
+				{/block:AskEnabled}
+				{block:SubmissionsEnabled}
+					<a href="{BlogURL}submit" class="submit link block nofade">
+						{SubmitLabel}
+					</a>
+				{/block:SubmissionsEnabled}
+				{block:HasPages}
+					{block:Pages}
+					    <a href="{URL}" class="page link block nofade">
+							{Label}
+						</a>
+					{/block:Pages}
+				{/block:HasPages}
+			</div>
+		</div>
+		<div id="post-container">
+		
+			<!-- Posts -->
+		
+			{block:Posts}
+				<div class="post">
+					<div class="header">
+						{block:RebloggedFrom}
+							{lang:Reblogged from} <a href="{ReblogParentURL}"><img src="{ReblogParentPortraitURL-16}" style="position:relative;top:2px"> {reblogParentName}</a>&nbsp;&nbsp;
+						{/block:RebloggedFrom}
+						{block:NoteCount}
+							{NoteCountWithLabel}&nbsp;&nbsp;
+						{/block:NoteCount}
+						{block:Date}{TimeAgo}{/block:Date}&nbsp;&nbsp;
+						<a href="{Permalink}">Permalink</a>
+					</div>
+					{block:Text}
+						<div class="body">
+							{block:Title}
+								<div class="title">{Title}</div>
+							{/block:Title}
+							{Body}
+						</div>
+					{/block:Text}
+					
+					{block:Photo}
+						{LinkOpenTag}<img src="{PhotoURL-500}" class="nofade-img" alt="{PhotoAlt}">{LinkCloseTag}
+						<div class="imgdata">
+							{block:HighRes}
+								<span class="highres">
+									<a href="{PhotoURL-HighRes}">High Resolution</a>
+								</span>
+							{/block:HighRes}
+							{block:Exif}
+								<span class="exif">
+									{block:Camera}Camera: {Camera}<br>{/block:Camera}
+									{block:Aperture}Aperture: {Aperture}<br>{/block:Aperture}
+									{block:Exposure}Exposure: {Exposure}<br>{/block:Exposure}
+									{block:FocalLength}Focal Length: {FocalLength}{/block:FocalLength}
+								</span>
+							{/block:Exif}
+						</div>
+						{block:Caption}
+							<div class="body">
+								{Caption}
+							</div>
+						{/block:Caption}
+					{/block:Photo}
+					
+					{block:Panorama}
+						{LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">{LinkCloseTag}
+						
+						{block:Caption}
+							<div class="body">
+								{Caption}
+							</div>
+						{/block:Caption}
+					{/block:Panorama}
+					
+					{block:Photoset}
+						{Photoset-500}
+						
+						{block:Caption}
+							<div class="body">
+								{Caption}
+							</div>
+						{/block:Caption}
+					{/block:Photoset}
+					
+					{block:Quote}
+						<div class="body">
+							<div class="quote">“{Quote}”</div>
+							{block:Source}<div class="quote-source">- {Source}</div>{/block:Source}
+						</div>
+					{/block:Quote}
+					
+					{block:Link}
+						<div class="body">
+							<div class="title"><a href="{URL}" {Target}>{Name}</a></div>
+							{block:Description}
+								{Description}
+							{/block:Description}
+						</div>
+					{/block:Link}
+					
+					{block:Chat}
+						<div class="body">
+							{block:Title}
+								<div class="title">{Title}</div>
+							{/block:Title}
+							{block:Lines}
+								<div class="chat {Alt}">
+									{block:Label}<span class="name">{Label}</span>{/block:Label}
+									<span class="line">{Line}</span>
+								</div>
+							{/block:Lines}
+						</div>
+					{/block:Chat}
+					
+					{block:Audio}
+						{block:AudioEmbed}
+							{AudioEmbed-500}
+						{/block:AudioEmbed}
+						{block:AudioPlayer}
+							{AudioPlayerGrey}
+						{/block:AudioPlayer}
+						{block:Caption}
+						  <div class="body">
+							  {Caption}
+						  </div>
+						{/block:Caption}
+					{/block:Audio}
+					
+					{block:Video}
+						{Video-500}
+						{block:Caption}
+							<div class="body">
+								{Caption}
+							</div>
+						{/block:Caption}
+					{/block:Video}
+					
+					{block:Answer}
+						<div class="body">
+							<div class="question">
+								{Question}
+							</div>
+							<svg width="30" height="15" class="arrow">
+								<polygon points="0,0 15,15 30,0" style="fill:{color:Ask Background}" />
+							</svg><br>
+							<img src="{AskerPortraitURL-40}" class="asker-portrait">
+							{block:Answerer}
+								<div class="answer">
+									{Answer}
+								</div>
+								<svg width="30" height="15" class="arrow">
+									<polygon points="0,0 15,15 30,0" style="fill:{color:Ask Background}" />
+								</svg><br>
+								<img src="{AnswererPortraitURL-40}" class="answerer-portrait">
+							{/block:Answerer}
+							{Replies}
+						</div>
+					{/block:Answer}
+					<div class="footer">
+						{block:HasTags}
+							{block:Tags}
+								<a href="{TagURL}" class="tag">{Tag}</a>
+							{/block:Tags}
+						{/block:HasTags}
+					</div>
+					{block:PostNotes}
+					    {PostNotes-16}
+					{/block:PostNotes}
+				</div><br>
+			{/block:Posts}
+			{block:Pagination}
+		        <div id="pagination">
+		            {block:PreviousPage}<a href="{PreviousPage}" id="previous">&lt; {lang:Prev}</a>{/block:PreviousPage}
+		            {block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &gt;</a>{/block:NextPage}
+		        </div>
+		    {/block:Pagination}
+		</div>
+	</body>
+</html>
